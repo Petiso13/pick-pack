@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 
 export default async function Home() {
   const session = await auth()
+  // console.log('the session object ', session)
 
   if (session?.user) redirect('/lockers')
 
