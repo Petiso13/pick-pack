@@ -1,8 +1,6 @@
 import "~/styles/globals.css";
-
-import { type Metadata } from "next";
 import { Geist } from "next/font/google";
-
+import { type Metadata } from "next";
 import { TRPCReactProvider } from "~/trpc/react";
 
 export const metadata: Metadata = {
@@ -16,13 +14,19 @@ const geist = Geist({
   variable: "--font-geist-sans",
 });
 
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geist.variable}`}>
       <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
+          <h1 className="pt-24 pb-24 text-5xl font-extrabold tracking-tight sm:text-[5rem]">
+            PickPack
+          </h1>
+          <TRPCReactProvider>{children}</TRPCReactProvider>
+        </main>
       </body>
     </html>
   );
